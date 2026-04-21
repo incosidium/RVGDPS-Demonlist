@@ -1,5 +1,5 @@
-# Welcome to the Geometry Dash Shitty List template!
-
+# Welcome to our RVGDPS Demonlist
+- This is a list holding all verified demons in RVGDPS
 # FAQ
 
 ---
