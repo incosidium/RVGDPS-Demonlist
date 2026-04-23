@@ -8,9 +8,11 @@
     "percentToQualify": "100",
     "password": "No Pass",
     "records": [
+        {
         "user": "absolutevortex",
         "link": "https://youtu.be/kqctO2Wl214?si=-Mkg56gXlKSyeZ2l",
         "percent": 100,
         "hz": 240
+        }
     ]
 }
