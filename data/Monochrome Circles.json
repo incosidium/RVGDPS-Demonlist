@@ -20,8 +20,8 @@
         {
             "user": "absolutevortex",
             "link": "https://youtu.be/8mUGwGiv5u8?si=FXtZ7yYGXIlJxSKs",
-            "percent": 100,
-            "hz": 240
+            "percent": "100",
+            "hz": "240"
         }
     ]
 }
