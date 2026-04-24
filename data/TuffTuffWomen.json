@@ -1,0 +1,18 @@
+{
+    "id": 115,
+    "name": "Tuff Tuff Women",
+    "author": "Zephyr",
+    "creators": ["Zephyr"],
+    "verifier": "Zephyr",
+    "verification": "waiting...",
+    "percentToQualify": "100",
+    "password": "No Pass",
+    "records": [ 
+        {   
+        "user": "AbsoluteVortex",
+        "link": "https://www.youtube.com/watch?v=yZBCPL9xbz0",
+        "percent": 100,
+        "hz": 240
+        }
+    ]
+}
