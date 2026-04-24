@@ -7,5 +7,12 @@
     "verification": "waiting...",
     "percentToQualify": "100",
     "password": "No Pass",
-    "records": []
+    "records": [ 
+        {   
+        "user": "AbsoluteVortex",
+        "link": "https://www.youtube.com/watch?v=OHvU2rrO7CI",
+        "percent": 100,
+        "hz": 240
+        }
+    ]
 }
