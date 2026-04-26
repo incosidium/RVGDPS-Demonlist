@@ -7,5 +7,12 @@
     "verification": "https://tiktok.com/player/v1/ZS9j3rAor/",
     "percentToQualify": "100",
     "password": "no Pass",
-    "records": []
+    "records": [
+        {
+            "user": "Myst3ryM3m3r",
+            "link": "https://youtu.be/YrcawjQbtHI",
+            "percent": 100,
+            "hz": 60
+        }   
+    ]
 }
