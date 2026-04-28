@@ -13,6 +13,12 @@
             "link": "https://youtu.be/YrcawjQbtHI",
             "percent": 100,
             "hz": 60
-        }   
+        },
+        {   
+            "user": "AbsoluteVortex",
+            "link": "https://www.youtube.com/watch?v=WTbZLAJTBrQ",
+            "percent": 100,
+            "hz": 240
+        }
     ]
 }
