@@ -14,7 +14,8 @@
             "percent": 100,
             "hz": 60
         },
-        {   "user": "AbsoluteVortex",
+        {   
+            "user": "AbsoluteVortex",
             "link": "https://www.youtube.com/watch?v=H2YaDRJNakQ",
             "percent": 100,
             "hz": 60
