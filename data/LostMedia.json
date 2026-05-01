@@ -19,6 +19,12 @@
             "link": "https://www.youtube.com/watch?v=WTbZLAJTBrQ",
             "percent": 100,
             "hz": 240
+        },
+        {   
+            "user": "Zephyr",
+            "link": "https://www.youtube.com/watch?v=D8ODA0ShP6g",
+            "percent": 100,
+            "hz": 120
         }
     ]
 }
