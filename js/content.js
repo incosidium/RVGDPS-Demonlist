@@ -5,8 +5,9 @@ import { round, score } from './score.js';
  */
 const dir = './data';
 
-export async function fetchList() {
-    const listResult = await fetch(`${dir}/_list.json`);
+export async function fetchList(category = 'main') {
+    const listPath = category === 'challenge' ? `${dir}/_list_challenge.json` : `${dir}/_list.json`;
+    const listResult = await fetch(listPath);
     try {
         const list = await listResult.json();
         return await Promise.all(
@@ -36,12 +37,6 @@ export async function fetchList() {
     }
 }
 
-export async function fetchList(category = 'main') {
-    const listPath = category === 'challenge' ? './data/_list_challenge.json' : './data/_list.json';
-    const listResult = await fetch(listPath);
-    // ... rest of the code stays the same
-}
-
 export async function fetchEditors() {
     try {
         const editorsResults = await fetch(`${dir}./_editors.json`);
@@ -52,8 +47,8 @@ export async function fetchEditors() {
     }
 }
 
-export async function fetchLeaderboard() {
-    const list = await fetchList();
+export async function fetchLeaderboard(category = 'main') {
+    const list = await fetchList(category);
 
     const scoreMap = {};
     const errs = [];

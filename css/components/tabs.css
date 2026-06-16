@@ -28,3 +28,31 @@
 .tabs .tab:hover{
     background-color: var(--color-background-hover);
 }
+
+/* Category tabs for list switching */
+.category-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+
+.category-tab {
+    border: 2px solid var(--color-on-background);
+    cursor: pointer;
+    font: inherit;
+    padding: 0.75rem 1.5rem;
+    background-color: transparent;
+    color: var(--color-on-background);
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.category-tab:hover {
+    background-color: var(--color-background-hover);
+}
+
+.category-tab.active {
+    background-color: var(--color-on-background);
+    color: var(--color-background);
+}

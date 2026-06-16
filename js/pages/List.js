@@ -22,6 +22,20 @@ export default {
         </main>
         <main v-else class="page-list">
             <div class="list-container">
+                <div class="category-tabs">
+                    <button 
+                        class="category-tab" 
+                        :class="{ active: category === 'main' }" 
+                        @click="switchCategory('main')">
+                        Main List
+                    </button>
+                    <button 
+                        class="category-tab" 
+                        :class="{ active: category === 'challenge' }" 
+                        @click="switchCategory('challenge')">
+                        Challenge List
+                    </button>
+                </div>
                 <table class="list" v-if="list">
                     <tr v-for="([level, err], i) in list">
                         <td class="rank">
@@ -109,7 +123,7 @@ export default {
                         Have either source audio or clicks/taps in the video. Edited audio only does not count
                     </p>
                     <p>
-                        The recording must have a previous attempt and entire death animation shown before the completion, unless the completion is on the first attempt. Everyplay records are exempt from this
+                        The recording must have a previous attempt and entire death animation shown before the completion, unless the completion is on the first attempt. Everyplay records are exe[...]
                     </p>
                     <p>
                         The recording must also show the player hit the endwall, or the completion will be invalidated.
@@ -128,12 +142,12 @@ export default {
         </main>
     `,
     data: () => ({
-    list: [],
-    category: 'main',
+        list: [],
         editors: [],
         loading: true,
         selected: 0,
         errors: [],
+        category: 'main',
         roleIconMap,
         store
     }),
@@ -153,8 +167,9 @@ export default {
             );
         },
     },
-async mounted() {
-    this.list = await fetchList(this.category);
+    async mounted() {
+        // Hide loading spinner
+        this.list = await fetchList(this.category);
         this.editors = await fetchEditors();
 
         // Error handling
@@ -180,5 +195,12 @@ async mounted() {
     methods: {
         embed,
         score,
+        async switchCategory(newCategory) {
+            this.category = newCategory;
+            this.loading = true;
+            this.selected = 0;
+            this.list = await fetchList(this.category);
+            this.loading = false;
+        }
     },
 };
