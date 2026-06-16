@@ -36,6 +36,12 @@ export async function fetchList() {
     }
 }
 
+export async function fetchList(category = 'main') {
+    const listPath = category === 'challenge' ? './data/_list_challenge.json' : './data/_list.json';
+    const listResult = await fetch(listPath);
+    // ... rest of the code stays the same
+}
+
 export async function fetchEditors() {
     try {
         const editorsResults = await fetch(`${dir}./_editors.json`);
