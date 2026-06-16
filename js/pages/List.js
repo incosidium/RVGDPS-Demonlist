@@ -35,6 +35,12 @@ export default {
                         @click="switchCategory('challenge')">
                         Challenge List
                     </button>
+                    <button 
+                        class="category-tab" 
+                        :class="{ active: category === 'ill' }" 
+                        @click="switchCategory('ill')">
+                        ILL
+                    </button>
                 </div>
                 <table class="list" v-if="list">
                     <tr v-for="([level, err], i) in list">
