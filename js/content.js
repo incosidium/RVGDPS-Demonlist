@@ -6,7 +6,14 @@ import { round, score } from './score.js';
 const dir = './data';
 
 export async function fetchList(category = 'main') {
-    const listPath = category === 'challenge' ? `${dir}/_list_challenge.json` : `${dir}/_list.json`;
+    let listPath = `${dir}/_list.json`;
+    
+    if (category === 'challenge') {
+        listPath = `${dir}/_list_challenge.json`;
+    } else if (category === 'ill') {
+        listPath = `${dir}/_list_ill.json`;
+    }
+    
     const listResult = await fetch(listPath);
     try {
         const list = await listResult.json();
