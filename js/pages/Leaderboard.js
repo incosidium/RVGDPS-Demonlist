@@ -12,13 +12,28 @@ export default {
         loading: true,
         selected: 0,
         err: [],
+        category: 'main',
     }),
     template: `
         <main v-if="loading">
             <Spinner></Spinner>
         </main>
-        <main v-else class="page-leaderboard-container">
+        <main v-else class="page-leaderboard-container" :class="{ 'challenge-theme': category === 'challenge' }">
             <div class="page-leaderboard">
+                <div class="category-tabs">
+                    <button 
+                        class="category-tab" 
+                        :class="{ active: category === 'main' }" 
+                        @click="switchCategory('main')">
+                        Main Leaderboard
+                    </button>
+                    <button 
+                        class="category-tab" 
+                        :class="{ active: category === 'challenge' }" 
+                        @click="switchCategory('challenge')">
+                        Challenge Leaderboard
+                    </button>
+                </div>
                 <div class="error-container">
                     <p class="error" v-if="err.length > 0">
                         Leaderboard may be incorrect, as the following levels could not be loaded: {{ err.join(', ') }}
@@ -98,7 +113,7 @@ export default {
         },
     },
     async mounted() {
-        const [leaderboard, err] = await fetchLeaderboard();
+        const [leaderboard, err] = await fetchLeaderboard(this.category);
         this.leaderboard = leaderboard;
         this.err = err;
         // Hide loading spinner
@@ -106,5 +121,14 @@ export default {
     },
     methods: {
         localize,
+        async switchCategory(newCategory) {
+            this.category = newCategory;
+            this.loading = true;
+            this.selected = 0;
+            const [leaderboard, err] = await fetchLeaderboard(this.category);
+            this.leaderboard = leaderboard;
+            this.err = err;
+            this.loading = false;
+        }
     },
 };
