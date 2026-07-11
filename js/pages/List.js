@@ -17,10 +17,10 @@ const roleIconMap = {
 export default {
     components: { Spinner, LevelAuthors },
     template: `
-        <main v-if="loading">
+        <main v-if="loading" :class="{ 'challenge-theme': category === 'challenge' }">
             <Spinner></Spinner>
         </main>
-        <main v-else class="page-list">
+        <main v-else class="page-list" :class="{ 'challenge-theme': category === 'challenge' }">
             <div class="list-container">
                 <div class="category-tabs">
                     <button 
@@ -34,12 +34,6 @@ export default {
                         :class="{ active: category === 'challenge' }" 
                         @click="switchCategory('challenge')">
                         Challenge List
-                    </button>
-                    <button 
-                        class="category-tab" 
-                        :class="{ active: category === 'ill' }" 
-                        @click="switchCategory('ill')">
-                        ILL
                     </button>
                 </div>
                 <table class="list" v-if="list">
@@ -65,6 +59,10 @@ export default {
                         <li>
                             <div class="type-title-sm">Points when completed</div>
                             <p>{{ score(selected + 1, 100, level.percentToQualify) }}</p>
+                        </li>
+                        <li v-if="category === 'challenge'">
+                            <div class="type-title-sm">Challenge Points</div>
+                            <p>{{ level.points || score(selected + 1, 100, level.percentToQualify) }}</p>
                         </li>
                         <li>
                             <div class="type-title-sm">ID</div>
