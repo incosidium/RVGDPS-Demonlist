@@ -10,6 +10,33 @@
     padding-right: 2rem;
 }
 
+.page-list .category-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.page-list .category-tab {
+    background-color: var(--color-background);
+    color: var(--color-on-background);
+    border: 2px solid var(--color-primary);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.page-list .category-tab:hover {
+    background-color: var(--color-background-hover);
+    color: var(--color-on-background-hover);
+}
+
+.page-list .category-tab.active {
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+}
+
 .page-list .list {
     table-layout: auto;
 }
