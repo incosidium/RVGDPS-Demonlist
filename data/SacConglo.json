@@ -7,5 +7,11 @@
     "verification": "https://youtu.be/F63puFklj8k?si=0VFiFGerTv-e7rHn",
     "percentToQualify": "100",
     "password": "No Pass",
-    "records": []
+    "records": [
+        {
+            "user": "Zephyr",
+            "link": "https://www.youtube.com/watch?v=2y0Eg6_nY0g",
+            "percent": 100,
+            "hz": 60
+        },]
 }
