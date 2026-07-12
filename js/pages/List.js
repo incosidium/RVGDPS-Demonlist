@@ -54,7 +54,11 @@ export default {
                 <div class="level" v-if="level">
                     <h1>{{ level.name }}</h1>
                     <LevelAuthors :author="level.author" :creators="level.creators" :verifier="level.verifier"></LevelAuthors>
-                    <iframe class="video" id="videoframe" :src="video" frameborder="0"></iframe>
+                    <div class="video-wrapper">
+                        <iframe v-if="isYouTube" class="video" id="videoframe" :src="video" frameborder="0"></iframe>
+                        <blockquote v-else-if="isInstagram" class="instagram-media" :data-instgrm-permalink="level.verification + '/'"></blockquote>
+                        <iframe v-else-if="isTikTok" class="video" :src="tiktokEmbed" frameborder="0" scrolling="no"></iframe>
+                    </div>
                     <ul class="stats">
                         <li>
                             <div class="type-title-sm">Points when completed</div>
@@ -160,23 +164,36 @@ export default {
             return this.list[this.selected][0];
         },
         video() {
-            if (!this.level.showcase) {
-                return embed(this.level.verification);
-            }
-
-            return embed(
-                this.toggledShowcase
-                    ? this.level.showcase
-                    : this.level.verification
-            );
+            if (!this.level) return '';
+            const url = this.level.showcase || this.level.verification;
+            return this.getYouTubeEmbed(url);
         },
+        isYouTube() {
+            if (!this.level) return false;
+            const url = this.level.showcase || this.level.verification;
+            return url.includes('youtube.com') || url.includes('youtu.be');
+        },
+        isTikTok() {
+            if (!this.level) return false;
+            const url = this.level.showcase || this.level.verification;
+            return url.includes('tiktok.com');
+        },
+        isInstagram() {
+            if (!this.level) return false;
+            const url = this.level.showcase || this.level.verification;
+            return url.includes('instagram.com/reel');
+        },
+        tiktokEmbed() {
+            if (!this.level) return '';
+            const url = this.level.showcase || this.level.verification;
+            const videoId = url.match(/\/video\/(\d+)/)?.[1];
+            return videoId ? \`https://www.tiktok.com/embed/v2/\${videoId}\` : '';
+        }
     },
     async mounted() {
-        // Hide loading spinner
         this.list = await fetchList(this.category);
         this.editors = await fetchEditors();
 
-        // Error handling
         if (!this.list) {
             this.errors = [
                 "Failed to load list. Retry in a few minutes or notify list staff.",
@@ -186,7 +203,7 @@ export default {
                 ...this.list
                     .filter(([_, err]) => err)
                     .map(([_, err]) => {
-                        return `Failed to load level. (${err}.json)`;
+                        return \`Failed to load level. (\${err}.json)\`;
                     })
             );
             if (!this.editors) {
@@ -197,10 +214,14 @@ export default {
         this.loading = false;
     },
     methods: {
-        embed,
         score,
+        getYouTubeEmbed(url) {
+            const match = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^\&\?\/]+)/);
+            return match ? \`https://www.youtube.com/embed/\${match[1]}\` : '';
+        },
         async switchCategory(newCategory) {
             this.category = newCategory;
+            store.setCategory(newCategory);
             this.loading = true;
             this.selected = 0;
             this.list = await fetchList(this.category);
