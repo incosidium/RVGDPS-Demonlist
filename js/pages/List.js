@@ -185,9 +185,11 @@ export default {
         },
         tiktokEmbed() {
             if (!this.level) return '';
+        
             const url = this.level.showcase || this.level.verification;
             const videoId = url.match(/\/video\/(\d+)/)?.[1];
-            return videoId ? \`https://www.tiktok.com/embed/v2/\${videoId}\` : '';
+        
+            return videoId ? `https://www.tiktok.com/embed/v2/${videoId}` : '';
         }
     },
     async mounted() {
@@ -217,7 +219,7 @@ export default {
         score,
         getYouTubeEmbed(url) {
             const match = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^\&\?\/]+)/);
-            return match ? \`https://www.youtube.com/embed/\${match[1]}\` : '';
+            return match ? `https://www.youtube.com/embed/${match[1]}` : '';
         },
         async switchCategory(newCategory) {
             this.category = newCategory;
