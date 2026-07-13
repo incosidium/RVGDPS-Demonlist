@@ -7,5 +7,12 @@
     "verification": "https://youtu.be/di9EEzFF7Uk",
     "percentToQualify": "100",
     "password": "No Pass",
-    "records": []
+    "records": [
+        {
+        "user": "AbsoluteVortex",
+        "link": "https://www.youtube.com/watch?v=56GM1ocHBMI",
+        "percent": 10,
+        "hz": 1
+        }
+    ]
 }
