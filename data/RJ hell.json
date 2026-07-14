@@ -9,6 +9,12 @@
     "password": "no pass",
     "records": [
         {
+        "user": "fresh",
+        "link": "https://files.catbox.moe/5nfw5r.mp4",
+        "percent": 100,
+        "hz": 240
+        },
+        {
         "user": "AbsoluteVortex",
         "link": "https://www.youtube.com/watch?v=GlmklhixvMw",
         "percent": 100,
