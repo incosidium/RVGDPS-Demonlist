@@ -13,6 +13,12 @@
             "link": "https://www.youtube.com/watch?v=2y0Eg6_nY0g",
             "percent": 100,
             "hz": 60
+        },
+        {
+            "user": "fresh",
+            "link": "https://files.catbox.moe/aote4q.mp4",
+            "percent": 100,
+            "hz": 240
         }
     ]
 }
