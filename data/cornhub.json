@@ -9,6 +9,12 @@
     "password": "No Pass",
     "records": [
         {
+        "user": "fresh",
+        "link": "https://files.catbox.moe/y4mbsi.mp4",
+        "percent": "100",
+        "hz": "240"
+        },        
+        {
         "user": "Zephyr",
         "link": "www.youtube.com/watch?v=iZSNj-K6i2g&t=-2147483647s",
         "percent": "100",
