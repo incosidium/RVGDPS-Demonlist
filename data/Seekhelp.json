@@ -9,6 +9,12 @@
     "password": "no Pass",
     "records": [
         {
+            "user": "fresh",
+            "link": "https://files.catbox.moe/j370ov.mp4",
+            "percent": 100,
+            "hz": 240
+        },
+        {
             "user": "Zephyr",
             "link": "https://youtu.be/D8ODA0ShP6g",
             "percent": 100,
