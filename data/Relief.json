@@ -3,16 +3,9 @@
     "name": "Relief",
     "author": "wadanohara",
     "creators": ["wadanohara", "Zephyr"],
-    "verifier": "AbsoluteVortex",
-    "verification": "https://www.youtube.com/watch?v=xGxM4yFsg0o",
+    "verifier": "wadanohara",
+    "verification": "https://youtu.be/FdJsJWBbJwE",
     "percentToQualify": 100,
     "password": "No Pass",
-    "records": [
-        {
-        "user": "wadanohara",
-        "link": "https://youtu.be/FdJsJWBbJwE",
-        "percent": "100",
-        "hz": "240"
-        }
-    ]
+    "records": []
 }
